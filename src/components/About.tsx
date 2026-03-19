@@ -1,56 +1,61 @@
 import { motion } from "framer-motion";
-import { Brain, Palette, BarChart3, GraduationCap } from "lucide-react";
 
-const highlights = [
-  { icon: Brain, label: "AI & ML", desc: "Deep Learning, NLP, Computer Vision" },
-  { icon: BarChart3, label: "Data Science", desc: "Analysis, Visualization, Insights" },
-  { icon: Palette, label: "3D Design", desc: "Blender, Figma, Photoshop" },
-  { icon: GraduationCap, label: "IIT Bhilai", desc: "CGPA: 7.84 · DS&AI" },
+const stats = [
+  { value: "7.84", label: "CGPA" },
+  { value: "3+", label: "Internships" },
+  { value: "10+", label: "Projects" },
+  { value: "50+", label: "Students Led" },
 ];
 
 const About = () => (
   <section id="about" className="section-padding">
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-7xl mx-auto">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8 }}
       >
-        <p className="font-mono text-xs tracking-[0.3em] uppercase text-primary mb-3">About</p>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-8">
-          Data Scientist. <span className="text-gradient">Creative Thinker.</span>
-        </h2>
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          {/* Left */}
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-primary mb-6">About</p>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.03em] leading-[1] mb-8">
+              Data meets<br />
+              <span className="text-muted-foreground">creativity</span>
+            </h2>
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <p className="text-muted-foreground leading-relaxed">
-            I am a third-year B.Tech student specializing in Data Science and Artificial Intelligence at IIT Bhilai.
-            I blend technical expertise in data analysis, AI, and machine learning with creative problem-solving through 3D art and design.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            I excel at merging artistic expression with computational techniques to create innovative solutions.
-            My goal is to build intelligent systems that bridge the gap between{" "}
-            <span className="font-mono text-primary">7.84 CGPA</span> precision and 3D spatial creativity.
-          </p>
-        </div>
+          {/* Right */}
+          <div className="lg:pt-16">
+            <p className="text-muted-foreground leading-[1.8] mb-6">
+              Third-year B.Tech student specializing in Data Science and Artificial Intelligence at IIT Bhilai.
+              I blend technical expertise in data analysis, AI, and machine learning with creative problem-solving
+              through 3D art and design.
+            </p>
+            <p className="text-muted-foreground leading-[1.8] mb-12">
+              My unique intersection of analytical precision and spatial creativity allows me to approach problems
+              from multiple dimensions — building intelligent systems that are both functionally robust and
+              aesthetically compelling.
+            </p>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {highlights.map(({ icon: Icon, label, desc }, i) => (
-            <motion.div
-              key={label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="glass rounded-3xl p-6 group hover:border-primary/30 transition-all duration-300"
-            >
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <Icon size={18} className="text-primary" />
-              </div>
-              <h3 className="font-semibold text-sm text-foreground mb-1">{label}</h3>
-              <p className="text-xs text-muted-foreground">{desc}</p>
-            </motion.div>
-          ))}
+            {/* Stats */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border">
+              {stats.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  className="bg-background p-6 text-center"
+                >
+                  <p className="font-display text-3xl font-extrabold text-foreground mb-1">{stat.value}</p>
+                  <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">{stat.label}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </motion.div>
     </div>

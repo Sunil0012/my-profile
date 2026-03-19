@@ -1,119 +1,149 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 const roles = [
-  "Data Science & AI Student",
-  "Data Analyst",
+  "Data Scientist",
+  "AI Engineer",
   "3D Artist",
-  "Machine Learning Engineer",
+  "Problem Solver",
 ];
 
 const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [typing, setTyping] = useState(true);
 
   useEffect(() => {
-    const current = roles[roleIndex];
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (typing) {
-      if (displayed.length < current.length) {
-        timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 60);
-      } else {
-        timeout = setTimeout(() => setTyping(false), 2000);
-      }
-    } else {
-      if (displayed.length > 0) {
-        timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 30);
-      } else {
-        setRoleIndex((prev) => (prev + 1) % roles.length);
-        setTyping(true);
-      }
-    }
-
-    return () => clearTimeout(timeout);
-  }, [displayed, typing, roleIndex]);
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center section-padding pt-32">
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-glow-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-[120px] animate-glow-pulse" style={{ animationDelay: "1.5s" }} />
-
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+    <section className="relative min-h-screen flex flex-col justify-between px-6 md:px-12 lg:px-24 pt-32 pb-12">
+      <div className="flex-1 flex flex-col justify-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-primary mb-6">
-            IIT Bhilai · B.Tech Data Science & AI
-          </p>
+          {/* Eyebrow */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-8"
+          >
+            IIT Bhilai — Data Science & AI
+          </motion.p>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] leading-[0.95] mb-6">
-            <span className="text-foreground">Khethavath</span>
-            <br />
-            <span className="text-gradient">Sunil Naik</span>
-          </h1>
-
-          <div className="h-8 mb-8">
-            <span className="font-mono text-lg text-muted-foreground">
-              {displayed}
-              <span className="animate-pulse text-primary">|</span>
-            </span>
+          {/* Main heading */}
+          <div className="overflow-hidden mb-4">
+            <motion.h1
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="font-display text-[clamp(2.5rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-[-0.04em]"
+            >
+              Khethavath
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden mb-8">
+            <motion.h1
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ delay: 0.45, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="font-display text-[clamp(2.5rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-[-0.04em]"
+            >
+              Sunil <span className="text-gradient">Naik</span>
+            </motion.h1>
           </div>
 
-          <p className="text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed">
-            Synthesizing data into intelligence. Bridging analytical precision with
-            3D spatial creativity to build systems that matter.
-          </p>
+          {/* Role ticker */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="flex items-center gap-4 mb-12"
+          >
+            <div className="w-12 h-px bg-primary" />
+            <div className="h-8 overflow-hidden">
+              <motion.span
+                key={roleIndex}
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -30, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="block text-lg text-muted-foreground font-light"
+              >
+                {roles[roleIndex]}
+              </motion.span>
+            </div>
+          </motion.div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="max-w-lg text-muted-foreground leading-relaxed mb-12"
+          >
+            Synthesizing data into intelligence. Bridging analytical precision
+            with creative 3D spatial thinking to build systems that matter.
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="flex items-center gap-6"
+          >
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold text-sm glow-primary hover:brightness-110 transition-all"
+              className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-foreground transition-colors duration-300"
             >
               View Projects
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 glass text-foreground px-6 py-3 rounded-xl font-semibold text-sm hover:bg-card/80 transition-all"
+              className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground border-b border-muted-foreground hover:border-foreground pb-1 transition-all duration-300"
             >
-              Contact Me
+              Get in touch
             </a>
-          </div>
-
-          <div className="flex items-center justify-center gap-5">
-            {[
-              { icon: Github, href: "https://github.com/Sunil0012" },
-              { icon: Linkedin, href: "https://www.linkedin.com/in/khethavath-sunil-naik-79a618237/" },
-              { icon: Mail, href: "mailto:sunilnaikkethavath@gmail.com" },
-            ].map(({ icon: Icon, href }) => (
-              <a
-                key={href}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 glass rounded-xl text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Icon size={18} />
-              </a>
-            ))}
-          </div>
+          </motion.div>
         </motion.div>
-
-        <motion.a
-          href="#about"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground animate-float"
-        >
-          <ArrowDown size={20} />
-        </motion.a>
       </div>
+
+      {/* Bottom bar */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="flex items-center justify-between border-t border-border pt-6"
+      >
+        <div className="flex items-center gap-8">
+          {[
+            { label: "GitHub", href: "https://github.com/Sunil0012" },
+            { label: "LinkedIn", href: "https://www.linkedin.com/in/khethavath-sunil-naik-79a618237/" },
+            { label: "Email", href: "mailto:sunilnaikkethavath@gmail.com" },
+          ].map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+        <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
+          <ArrowDown size={16} />
+        </a>
+      </motion.div>
     </section>
   );
 };

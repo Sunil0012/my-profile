@@ -1,25 +1,23 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-
 const Footer = () => (
-  <footer className="border-t border-border py-8 px-4">
-    <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p className="text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Khethavath Sunil Naik. All rights reserved.
+  <footer className="px-6 md:px-12 lg:px-24 py-8 border-t border-border">
+    <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p className="text-xs text-muted-foreground tracking-wider">
+        © {new Date().getFullYear()} Khethavath Sunil Naik
       </p>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-8">
         {[
-          { icon: Github, href: "https://github.com/Sunil0012" },
-          { icon: Linkedin, href: "https://www.linkedin.com/in/khethavath-sunil-naik-79a618237/" },
-          { icon: Mail, href: "mailto:sunilnaikkethavath@gmail.com" },
-        ].map(({ icon: Icon, href }) => (
+          { label: "GitHub", href: "https://github.com/Sunil0012" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/in/khethavath-sunil-naik-79a618237/" },
+          { label: "Email", href: "mailto:sunilnaikkethavath@gmail.com" },
+        ].map(({ label, href }) => (
           <a
-            key={href}
+            key={label}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
+            className="text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300"
           >
-            <Icon size={16} />
+            {label}
           </a>
         ))}
       </div>
