@@ -2,62 +2,50 @@ import { motion } from "framer-motion";
 
 const skillCategories = [
   {
-    title: "Programming",
-    color: "primary",
-    skills: ["Python", "C", "C++", "SQL", "Bash"],
+    title: "Languages",
+    skills: ["Python", "C", "C++", "SQL", "Bash", "JavaScript"],
+  },
+  {
+    title: "Data & ML",
+    skills: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "PyTorch", "SciPy"],
+  },
+  {
+    title: "Deep Learning",
+    skills: ["Neural Networks", "CNNs", "RNNs", "Transformers", "NLP", "Computer Vision"],
   },
   {
     title: "Full Stack",
-    color: "primary",
-    skills: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "REST APIs"],
-  },
-  {
-    title: "Data Science & ML",
-    color: "primary",
-    skills: ["Scikit-learn", "TensorFlow", "PyTorch", "Pandas", "NumPy", "SciPy", "Statsmodels"],
-  },
-  {
-    title: "Deep Learning & AI",
-    color: "accent",
-    skills: ["Neural Networks", "CNNs", "RNNs", "Transformers", "NLP", "Computer Vision", "Transfer Learning"],
+    skills: ["React", "Node.js", "Express", "HTML/CSS", "REST APIs"],
   },
   {
     title: "Visualization",
-    color: "primary",
-    skills: ["Matplotlib", "Seaborn", "Plotly", "Tableau", "Power BI", "Excel"],
+    skills: ["Tableau", "Power BI", "Plotly", "Matplotlib", "Seaborn"],
   },
   {
-    title: "Databases & Big Data",
-    color: "primary",
-    skills: ["MySQL", "PostgreSQL", "SQLite", "MongoDB", "Hadoop", "Spark"],
-  },
-  {
-    title: "MLOps & Tools",
-    color: "primary",
-    skills: ["Flask", "Streamlit", "Docker", "Git", "GitHub Actions"],
+    title: "Tools & Infra",
+    skills: ["Docker", "Git", "Flask", "Streamlit", "PostgreSQL", "MongoDB"],
   },
   {
     title: "Design",
-    color: "accent",
     skills: ["Blender", "Figma", "Photoshop", "After Effects"],
   },
 ];
 
 const Skills = () => (
   <section id="skills" className="section-padding">
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-7xl mx-auto">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8 }}
       >
-        <p className="font-mono text-xs tracking-[0.3em] uppercase text-primary mb-3">Skills</p>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-12">
-          Tech Stack <span className="text-gradient">Radar</span>
+        <p className="text-xs uppercase tracking-[0.3em] text-primary mb-6">Expertise</p>
+        <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-[-0.03em] mb-16">
+          Technical arsenal
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="space-y-0">
           {skillCategories.map((cat, i) => (
             <motion.div
               key={cat.title}
@@ -65,20 +53,18 @@ const Skills = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05, duration: 0.5 }}
-              className={`glass rounded-3xl p-6 hover:border-${cat.color}/30 transition-all duration-300 group`}
+              className="grid grid-cols-12 gap-4 py-6 border-b border-border group hover:bg-card/50 transition-colors duration-300 px-4 -mx-4"
             >
-              <h3 className={`font-semibold text-sm mb-4 ${cat.color === "accent" ? "text-accent" : "text-primary"}`}>
-                {cat.title}
-              </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="col-span-12 sm:col-span-3">
+                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                  {cat.title}
+                </span>
+              </div>
+              <div className="col-span-12 sm:col-span-9 flex flex-wrap gap-3">
                 {cat.skills.map((skill) => (
                   <span
                     key={skill}
-                    className={`font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-lg transition-colors ${
-                      cat.color === "accent"
-                        ? "text-accent bg-accent/10 group-hover:bg-accent/20"
-                        : "text-primary bg-primary/10 group-hover:bg-primary/20"
-                    }`}
+                    className="text-sm text-foreground/80 hover:text-primary transition-colors duration-300 cursor-default"
                   >
                     {skill}
                   </span>
