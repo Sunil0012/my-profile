@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import portrait from "@/assets/sunil-portrait.png.asset.json";
 
 const roles = [
-  "Data Scientist",
-  "AI Engineer",
-  "3D Artist",
-  "Problem Solver",
+  "Data Science & AI @ IIT Bhilai",
+  "Machine Learning Engineer",
+  "Full-Stack Developer",
+  "3D Artist & Designer",
 ];
 
 const Hero = () => {
@@ -20,24 +21,38 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-between px-6 md:px-12 lg:px-24 pt-32 pb-12">
-      <div className="flex-1 flex flex-col justify-center">
+    <section className="relative min-h-screen flex flex-col justify-between px-6 md:px-12 lg:px-24 pt-32 pb-12 overflow-hidden">
+      {/* Portrait blended into the background */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.05 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[58%] z-0"
+        aria-hidden="true"
+      >
+        <img
+          src={portrait.url}
+          alt=""
+          className="h-full w-full object-cover object-[65%_20%] portrait-blend"
+        />
+        <div className="absolute inset-0 hero-veil" />
+      </motion.div>
+
+      <div className="relative z-10 flex-1 flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Eyebrow */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-8"
           >
-            IIT Bhilai — Data Science & AI
+            IIT Bhilai — B.Tech Data Science & AI, 2023–2027
           </motion.p>
 
-          {/* Main heading */}
           <div className="overflow-hidden mb-4">
             <motion.h1
               initial={{ y: "100%" }}
@@ -59,7 +74,6 @@ const Hero = () => {
             </motion.h1>
           </div>
 
-          {/* Role ticker */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -72,7 +86,6 @@ const Hero = () => {
                 key={roleIndex}
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -30, opacity: 0 }}
                 transition={{ duration: 0.5 }}
                 className="block text-lg text-muted-foreground font-light"
               >
@@ -81,23 +94,23 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="max-w-lg text-muted-foreground leading-relaxed mb-12"
+            className="max-w-xl text-muted-foreground leading-relaxed mb-12"
           >
-            Synthesizing data into intelligence. Bridging analytical precision
-            with creative 3D spatial thinking to build systems that matter.
+            Final-year B.Tech student shipping adaptive machine learning systems into live school
+            environments. Author of <span className="text-foreground">MARS</span>, a momentum-aware
+            adaptive rating algorithm submitted to IEEE DSAA 2026 — and a full-stack engineer who takes
+            ML from prototype to production.
           </motion.p>
 
-          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="flex items-center gap-6"
+            className="flex flex-wrap items-center gap-6"
           >
             <a
               href="#projects"
@@ -107,26 +120,27 @@ const Hero = () => {
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
             <a
-              href="#contact"
+              href="/Resume.pdf"
+              download
               className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground border-b border-muted-foreground hover:border-foreground pb-1 transition-all duration-300"
             >
-              Get in touch
+              Download Résumé
             </a>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Bottom bar */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="flex items-center justify-between border-t border-border pt-6"
+        className="relative z-10 flex items-center justify-between border-t border-border pt-6"
       >
-        <div className="flex items-center gap-8">
+        <div className="flex flex-wrap items-center gap-6 sm:gap-8">
           {[
             { label: "GitHub", href: "https://github.com/Sunil0012" },
             { label: "LinkedIn", href: "https://www.linkedin.com/in/khethavath-sunil-naik-79a618237/" },
+            { label: "Kalashetra", href: "https://thekalashetra.vercel.app" },
             { label: "Email", href: "mailto:sunilnaikkethavath@gmail.com" },
           ].map(({ label, href }) => (
             <a

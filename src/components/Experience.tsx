@@ -2,35 +2,42 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    role: "Operations Head",
-    company: "DesignX, IIT Bhilai",
-    period: "2025 — Present",
+    role: "Apprentice",
+    company: "ShikshaSarthi — under Dr. Gagan Raj Gupta, CSE, IIT Bhilai",
+    period: "May 2026 — Jul 2026",
     index: "01",
     points: [
-      "Conducted college sessions and workshops on design, creativity, and related technologies.",
-      "Led hands-on Blender workshops for 50+ students, improving technical skill engagement by 25%.",
+      "Built the complete offline-first school learning & quiz platform end-to-end and converted it into a deployable app, rolled out across multiple schools.",
+      "Implemented the MARS (Momentum-Aware Adaptive Rating System) algorithm as the platform's adaptive-testing engine, powering real-time learner rating and question routing.",
     ],
   },
   {
     role: "Data Analyst Intern",
     company: "Unified Mentor",
-    period: "Apr — Aug 2025",
+    period: "Apr 2025 — Aug 2025",
     index: "02",
     points: [
-      "Cleaned and analyzed 10,000+ records using Python (Pandas) and SQL, identifying key customer segments.",
-      "Built interactive Tableau dashboards tracking KPIs, saving 3+ hours weekly on manual aggregation.",
+      "Cleaned and analyzed 10,000+ records using Python (Pandas) and SQL, uncovering customer segments that informed business strategy.",
+      "Built Tableau dashboards automating reporting, saving 3+ hours/week; identified churn patterns via cohort analysis for stakeholder presentations.",
     ],
   },
   {
     role: "Robotics & AI Intern",
-    company: "My Equation",
+    company: "RoboAI",
     period: "Nov 2024 — Jan 2025",
     index: "03",
     points: [
-      "Designed CAD models for robotics components enhancing automation processes.",
-      "Implemented pathfinding algorithm reducing robot task completion time by 15%.",
+      "Designed CAD models and implemented pathfinding algorithms (A*, Dijkstra), improving automation efficiency by 15%.",
+      "Integrated computer-vision modules into robotic pipelines, accelerating object detection in constrained hardware environments.",
     ],
   },
+];
+
+const leadership = [
+  { role: "Operations Head — DesignX, IIT Bhilai", period: "Jul 2025 — Apr 2026" },
+  { role: "Head of 3D Modeling — DesignX, IIT Bhilai", period: "Jul 2024 — Apr 2025" },
+  { role: "Founder — Kalashetra Fine Art Auctions", period: "Supported by India Art Fair" },
+  { role: "Media Head — FinTech, IIT Bhilai", period: "Aug 2024 — May 2025" },
 ];
 
 const Experience = () => (
@@ -83,6 +90,19 @@ const Experience = () => (
             </motion.div>
           ))}
           <div className="border-t border-border" />
+        </div>
+
+        {/* Leadership */}
+        <div className="mt-24">
+          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-8">Leadership</p>
+          <div className="grid sm:grid-cols-2 gap-px bg-border">
+            {leadership.map((l) => (
+              <div key={l.role} className="bg-background p-6">
+                <p className="text-sm text-foreground mb-1">{l.role}</p>
+                <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">{l.period}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </div>

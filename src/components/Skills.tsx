@@ -2,32 +2,28 @@ import { motion } from "framer-motion";
 
 const skillCategories = [
   {
+    title: "AI / ML",
+    skills: ["PyTorch", "TensorFlow", "Scikit-learn", "BERT", "CNNs", "LSTMs", "Transformers", "Computer Vision", "NLP"],
+  },
+  {
     title: "Languages",
-    skills: ["Python", "C", "C++", "SQL", "Bash", "JavaScript"],
+    skills: ["Python", "C", "C++", "SQL", "JavaScript", "Bash"],
   },
   {
-    title: "Data & ML",
-    skills: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "PyTorch", "SciPy"],
+    title: "Data & Visualization",
+    skills: ["Pandas", "NumPy", "Plotly", "Tableau", "Power BI", "Excel"],
   },
   {
-    title: "Deep Learning",
-    skills: ["Neural Networks", "CNNs", "RNNs", "Transformers", "NLP", "Computer Vision"],
+    title: "Databases",
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Supabase", "Hadoop", "Spark"],
   },
   {
-    title: "Full Stack",
-    skills: ["React", "Node.js", "Express", "HTML/CSS", "REST APIs"],
+    title: "Full Stack & Tools",
+    skills: ["React", "Node.js", "Express.js", "REST APIs", "Flask", "Streamlit", "Git", "Docker"],
   },
   {
-    title: "Visualization",
-    skills: ["Tableau", "Power BI", "Plotly", "Matplotlib", "Seaborn"],
-  },
-  {
-    title: "Tools & Infra",
-    skills: ["Docker", "Git", "Flask", "Streamlit", "PostgreSQL", "MongoDB"],
-  },
-  {
-    title: "Design",
-    skills: ["Blender", "Figma", "Photoshop", "After Effects"],
+    title: "Design & 3D",
+    skills: ["Blender", "Figma", "Photoshop", "After Effects", "CAD Modeling"],
   },
 ];
 
