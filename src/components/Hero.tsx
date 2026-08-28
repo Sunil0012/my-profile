@@ -33,7 +33,7 @@ const Hero = () => {
         <img
           src={portrait}
           alt=""
-          className="h-full w-full object-cover object-[65%_20%] portrait-blend"
+          className="h-full w-full object-cover object-[78%_18%] portrait-blend"
         />
         <div className="absolute inset-0 hero-veil" />
       </motion.div>
