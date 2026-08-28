@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import portrait from "@/assets/sunil-portrait.jpg";
+import portrait from "@/assets/sunil-portrait.png";
 
 const roles = [
   "Data Science & AI @ IIT Bhilai",
