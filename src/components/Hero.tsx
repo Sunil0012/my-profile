@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import portrait from "@/assets/sunil-portrait.jpg";
+import portrait from "@/assets/sunil-portrait.png";
 
 const roles = [
   "Data Science & AI @ IIT Bhilai",
@@ -33,7 +33,7 @@ const Hero = () => {
         <img
           src={portrait}
           alt=""
-          className="h-full w-full object-cover object-[78%_18%] portrait-blend"
+          className="h-full w-full object-cover object-[62%_22%] portrait-blend"
         />
         <div className="absolute inset-0 hero-veil" />
       </motion.div>
