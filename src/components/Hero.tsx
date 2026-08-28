@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import portrait from "@/assets/sunil-portrait.png.asset.json";
+import portrait from "@/assets/sunil-portrait.jpg";
 
 const roles = [
   "Data Science & AI @ IIT Bhilai",
@@ -31,7 +31,7 @@ const Hero = () => {
         aria-hidden="true"
       >
         <img
-          src={portrait.url}
+          src={portrait}
           alt=""
           className="h-full w-full object-cover object-[65%_20%] portrait-blend"
         />
