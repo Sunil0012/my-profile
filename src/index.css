@@ -67,6 +67,28 @@
     font-family: 'Syne', sans-serif;
   }
 
+  /* Blends the portrait into the page background on every edge */
+  .portrait-blend {
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.5) 18%, #000 45%),
+      linear-gradient(to bottom, transparent 2%, #000 20%, #000 72%, transparent 99%);
+    mask-image:
+      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.5) 18%, #000 45%),
+      linear-gradient(to bottom, transparent 2%, #000 20%, #000 72%, transparent 99%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    opacity: 1;
+  }
+
+  .hero-veil {
+    background:
+      radial-gradient(55% 45% at 72% 40%, hsl(45 100% 60% / 0.12), transparent 70%),
+      linear-gradient(to right, hsl(var(--background)) 4%, hsl(var(--background) / 0.35) 34%, transparent 62%),
+      linear-gradient(to bottom, hsl(var(--background) / 0.7) 0%, transparent 22%, hsl(var(--background) / 0.75) 95%);
+  }
+
+
+
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }

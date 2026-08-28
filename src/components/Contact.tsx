@@ -38,8 +38,8 @@ const Contact = () => {
                 Let's work<br />together
               </h2>
               <p className="text-muted-foreground leading-[1.8] mb-12">
-                Open to internships, collaborations, and freelance opportunities in data science,
-                AI, and creative technology.
+                Open to full-time roles, research collaborations, and freelance work in data science,
+                machine learning, and full-stack product engineering.
               </p>
 
               <div className="space-y-4">
@@ -48,7 +48,9 @@ const Contact = () => {
                   { label: "+91-9346739056", href: "tel:+919346739056" },
                   { label: "LinkedIn", href: "https://www.linkedin.com/in/khethavath-sunil-naik-79a618237/" },
                   { label: "GitHub", href: "https://github.com/Sunil0012" },
+                  { label: "thekalashetra.vercel.app", href: "https://thekalashetra.vercel.app" },
                 ].map(({ label, href }) => (
+
                   <a
                     key={label}
                     href={href}
