@@ -4,10 +4,13 @@ import { Download } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Work", href: "#experience" },
+  { label: "Research", href: "#publication" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
+
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

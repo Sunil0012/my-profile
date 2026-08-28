@@ -8,8 +8,11 @@ const Footer = () => (
         {[
           { label: "GitHub", href: "https://github.com/Sunil0012" },
           { label: "LinkedIn", href: "https://www.linkedin.com/in/khethavath-sunil-naik-79a618237/" },
+          { label: "Kalashetra", href: "https://thekalashetra.vercel.app" },
+          { label: "Résumé", href: "/Resume.pdf" },
           { label: "Email", href: "mailto:sunilnaikkethavath@gmail.com" },
         ].map(({ label, href }) => (
+
           <a
             key={label}
             href={href}
